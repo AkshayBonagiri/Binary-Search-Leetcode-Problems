@@ -35,3 +35,31 @@ This problem is solved using **Binary Search on the answer**.
 
 - At the end, `min` will hold the **smallest valid capacity** required to ship all packages within the given number of days.
 
+- 📝 Problem Statement
+Koko loves bananas and wants to eat all the piles within h hours. Each hour she can eat up to k bananas from a single pile. If the pile has fewer bananas than k, she eats them all and waits for the next hour.
+Find the minimum integer speed k such that Koko can finish all the bananas in h hours.
+
+💡 Explanation
+We use binary search on k (eating speed):
+
+Start = 1 (minimum speed)
+
+End = max element in piles (maximum possible speed)
+
+For each mid value, calculate total hours Koko takes using that speed.
+
+If total hours > h, speed is too slow → search right
+
+Else, try slower speed → search left
+We stop when start == end, which gives the minimum valid k.
+
+⏱️ Time Complexity
+O(N * log M) where:
+
+N = number of piles
+
+M = maximum pile size (search space)
+
+✅ Final Step
+Return start, which is the minimum eating speed to finish all bananas in time.
+
